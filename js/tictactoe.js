@@ -2,10 +2,12 @@ $( document ).ready(function() {
 	startGame();
 })
 
-function startGame() {
-	player1Symbol = "X";
-    player2Symbol = "O";
+var player1Symbol = "X";
+var player2Symbol = "O";
+var currentPlayer;
+var isGameOver;
 
+function startGame() {
     currentPlayer = 1; //Player 1 starts the game
     isGameOver = 0;
 }
