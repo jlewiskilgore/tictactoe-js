@@ -212,3 +212,21 @@ function endGame() {
 		winner.innerHTML = "It's A Draw!!!";
 	}
 }
+
+function clearGameBoard() {
+	for(var i=0; i < spaceNames.length; i++) {
+		console.log(document.getElementById(spaceNames[i]).value);
+		document.getElementById(spaceNames[i]).value = " ";
+	}
+}
+
+function resetGame() {
+	clearGameBoard();
+	startGame();
+
+	var results = document.getElementById("game-results");
+	var gameBoard = document.getElementById("tictactoe-board");
+
+	results.style.display = "none";
+	gameBoard.style.display = "inline";
+}
