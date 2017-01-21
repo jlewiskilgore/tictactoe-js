@@ -27,7 +27,7 @@ body {
 }
 
 #winning-player {
-   font-size: 128px;
+   font-size: 60px;
 }
 
 input {
@@ -35,22 +35,17 @@ input {
    width: 80px;
    background: white;
    border: none;
+   font-size: 48px;
 }
 
 input:focus {
    outline: none;
 }
 
-#middle-left, #middle-center, #middle-right {
-
-}
-
-#top-center, #middle-center, #bottom-center {
-
-}
-
-#top-left, #middle-left, #bottom-left {
-
+#play-again {
+   font-size: 24px;
+   width: 200px;
+   background: grey;
 }
 
 #footer {
