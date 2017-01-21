@@ -5,6 +5,7 @@ $( document ).ready(function() {
 var spaceNames= ["top-left", "top-center", "top-right", "middle-left", "middle-center", "middle-right", "bottom-left", "bottom-center", "bottom-right"];
 var player1Symbol = "X";
 var player2Symbol = "O";
+var numberOfPlayers = 1; // 1 for player vs. computer OR 2 for player vs. player
 var currentPlayer;
 var isGameOver;
 var moves;
@@ -31,13 +32,24 @@ function checkSpace(space) {
 // Return true if a valid move was made
 function markPlayerSpace(player, space) {
 	var spaceButton = document.getElementById(space);
+	// Listen for player 1's button choice
 	if(spaceButton.value == " " && player == 1) {
 		spaceButton.value = player1Symbol;
 		moves++;
 		checkForWin();
 		currentPlayer = 2;
+		// If this is a one player game, have computer player make a move
+		if(numberOfPlayers == 1 && !isGameOver) {
+			computerMove = computerPlayerTurn();
+			spaceButton = document.getElementById(computerMove);
+			spaceButton.value = player2Symbol;
+			moves++;
+			checkForWin();
+			currentPlayer = 1;
+		}
 	}
-	else if(spaceButton.value == " " && player == 2) {
+	// List for player 2's button choice is a 2 player game
+	else if(spaceButton.value == " " && player == 2 && numberOfPlayers == 2) {
 		spaceButton.value = player2Symbol;
 		moves++;
 		checkForWin();
@@ -144,6 +156,28 @@ function isSpaceOpen(spaceId) {
 	return (boardSpace.value == " ");
 }
 
+// Function to return a random space that is currently open
+function makeRandomMove() {
+	var randomSpaceIdx;
+
+	do {
+		randomSpaceIdx = getRandomIntInclusive(0,8);
+		foundOpen = isSpaceOpen(spaceNames[randomSpaceIdx]);
+		if(foundOpen) {
+			console.log(spaceNames[randomSpaceIdx]);
+			return spaceNames[randomSpaceIdx];
+		}
+	}while(!foundOpen)
+}
+
+// Get a random int from a range includsive
+// Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // Pick the best space for the computer player to make next move
 // @return id of the html element of the board space to make move
 function computerPlayerTurn() {
@@ -155,6 +189,9 @@ function computerPlayerTurn() {
 	// Check if center space is still open
 	if(isSpaceOpen(spaceNames[4])) {
 		moveTo = spaceNames[4];
+	}
+	else {
+		moveTo = makeRandomMove();
 	}
 
 	return moveTo;
