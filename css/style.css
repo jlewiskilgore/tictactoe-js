@@ -8,6 +8,7 @@ body {
    width: 50%;
    text-align: center;
    display: inline;
+   white-space:nowrap;
 }
 
 .center-row {
@@ -30,8 +31,8 @@ body {
 }
 
 input {
-   height: 100px;
-   width: 100px;
+   height: 80px;
+   width: 80px;
    background: white;
    border: none;
 }
