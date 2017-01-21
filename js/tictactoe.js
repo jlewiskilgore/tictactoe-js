@@ -80,5 +80,3 @@ function checkForWin() {
 
 	console.log("GAME OVER?" + isGameOver);
 }
-=======
->>>>>>> 29880544c0e8a1ede2aac98976a172e1efe8b49e
