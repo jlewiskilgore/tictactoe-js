@@ -2,11 +2,13 @@ $( document ).ready(function() {
 	startGame();
 })
 
-function startGame() {
-	player1Symbol = "X";
-    player2Symbol = "O";
+var player1Symbol = "X";
+var player2Symbol = "O";
+var currentPlayer;
+var isGameOver;
 
-    currentPlayer = 1; // Player 1 starts the game
+function startGame() {
+    currentPlayer = 1; //Player 1 starts the game
     isGameOver = 0;
 }
 
@@ -78,3 +80,5 @@ function checkForWin() {
 
 	console.log("GAME OVER?" + isGameOver);
 }
+=======
+>>>>>>> 29880544c0e8a1ede2aac98976a172e1efe8b49e
