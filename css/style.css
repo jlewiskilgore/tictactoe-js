@@ -10,6 +10,16 @@ body {
    display: inline;
 }
 
+.center-row {
+   border-top: 10px solid black;
+   border-bottom: 10px solid black;
+}
+
+.center-column {
+   border-left: 10px solid black;
+   border-right: 10px solid black;
+}
+
 #game-results {
    text-align: center;
    display: none;
@@ -22,13 +32,23 @@ body {
 input {
    height: 100px;
    width: 100px;
-   margin-top: 5px;
-   margin-bottom: 5px;
-   margin-left: 5px;
-   margin-right: 5px;
+   background: white;
+   border: none;
 }
 
-#top-left, #top-center, #top-right {
+input:focus {
+   outline: none;
+}
+
+#middle-left, #middle-center, #middle-right {
+
+}
+
+#top-center, #middle-center, #bottom-center {
+
+}
+
+#top-left, #middle-left, #bottom-left {
 
 }
 

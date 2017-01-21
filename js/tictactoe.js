@@ -94,6 +94,50 @@ function checkForWin() {
 	}
 }
 
+// "Win Threat" is when any winning condition is currently satisfied by two
+// matching symbols plus a blank space.
+function checkForWinThreats(playerSymbol) {
+	// Get the current values of each space on the board
+	var topLeft = document.getElementById("top-left");
+	var topCenter = document.getElementById("top-center");
+	var topRight = document.getElementById("top-right");
+	var midLeft = document.getElementById("middle-left");
+	var midCenter = document.getElementById("middle-center");
+	var midRight = document.getElementById("middle-right");
+	var botLeft = document.getElementById("bottom-left");
+	var botCenter = document.getElementById("bottom-center");
+	var botRight = document.getElementById("bottom-right");
+
+	// Check for wins across each row for win threat
+	if(topLeft !== " " && topLeft == topCenter && topLeft == topRight) {
+		
+	}
+	else if(midLeft !== " " && midLeft == midCenter && midLeft == midRight) {
+		
+	}
+	else if(botLeft !== " " && botLeft == botCenter && botLeft == botRight) {
+		
+	}
+	// Check for wins down each column for win threat
+	else if(topLeft !== " " && topLeft == midLeft && topLeft == botLeft) {
+		
+	}
+	else if(topCenter !== " " && topCenter == midCenter && topCenter == botCenter) {
+		
+	}
+	else if(topRight !== " " && topRight == midRight && topRight == botRight) {
+		
+	}
+	// Check for wins down the diagonals for win threat
+	else if(topLeft !== " " && topLeft == midCenter && topLeft == botRight) {
+		
+	}
+	else if(topRight !== " " && topRight == midCenter && topRight == botLeft) {
+		
+	}
+
+}
+
 function endGame() {
 	var results = document.getElementById("game-results");
 	var winner = document.getElementById("winning-player");
