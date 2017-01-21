@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	startGame();
 })
 
+var spaceNames= ["top-left", "top-center", "top-right", "middle-left", "middle-center", "middle-right", "bottom-left", "bottom-center", "bottom-right"];
 var player1Symbol = "X";
 var player2Symbol = "O";
 var currentPlayer;
@@ -46,15 +47,15 @@ function markPlayerSpace(player, space) {
 
 function checkForWin() {
 	// Get the current values of each space on the board
-	var topLeft = document.getElementById("top-left").value;
-	var topCenter = document.getElementById("top-center").value;
-	var topRight = document.getElementById("top-right").value;
-	var midLeft = document.getElementById("middle-left").value;
-	var midCenter = document.getElementById("middle-center").value;
-	var midRight = document.getElementById("middle-right").value;
-	var botLeft = document.getElementById("bottom-left").value;
-	var botCenter = document.getElementById("bottom-center").value;
-	var botRight = document.getElementById("bottom-right").value;
+	var topLeft = document.getElementById(spaceNames[0]).value;
+	var topCenter = document.getElementById(spaceNames[1]).value;
+	var topRight = document.getElementById(spaceNames[2]).value;
+	var midLeft = document.getElementById(spaceNames[3]).value;
+	var midCenter = document.getElementById(spaceNames[4]).value;
+	var midRight = document.getElementById(spaceNames[5]).value;
+	var botLeft = document.getElementById(spaceNames[6]).value;
+	var botCenter = document.getElementById(spaceNames[7]).value;
+	var botRight = document.getElementById(spaceNames[8]).value;
 
 	// Check for wins across each row
 	if(topLeft !== " " && topLeft == topCenter && topLeft == topRight) {
@@ -98,15 +99,15 @@ function checkForWin() {
 // matching symbols plus a blank space.
 function checkForWinThreats(playerSymbol) {
 	// Get the current values of each space on the board
-	var topLeft = document.getElementById("top-left");
-	var topCenter = document.getElementById("top-center");
-	var topRight = document.getElementById("top-right");
-	var midLeft = document.getElementById("middle-left");
-	var midCenter = document.getElementById("middle-center");
-	var midRight = document.getElementById("middle-right");
-	var botLeft = document.getElementById("bottom-left");
-	var botCenter = document.getElementById("bottom-center");
-	var botRight = document.getElementById("bottom-right");
+	var topLeft = document.getElementById(spaceNames[0]);
+	var topCenter = document.getElementById(spaceNames[1]);
+	var topRight = document.getElementById(spaceNames[2]);
+	var midLeft = document.getElementById(spaceNames[3]);
+	var midCenter = document.getElementById(spaceNames[4]);
+	var midRight = document.getElementById(spaceNames[5]);
+	var botLeft = document.getElementById(spaceNames[6]);
+	var botCenter = document.getElementById(spaceNames[7]);
+	var botRight = document.getElementById(spaceNames[8]);
 
 	// Check for wins across each row for win threat
 	if(topLeft !== " " && topLeft == topCenter && topLeft == topRight) {
@@ -135,7 +136,28 @@ function checkForWinThreats(playerSymbol) {
 	else if(topRight !== " " && topRight == midCenter && topRight == botLeft) {
 		
 	}
+}
 
+function isSpaceOpen(spaceId) {
+	var boardSpace = document.getElementById(spaceId);
+
+	return (boardSpace.value == " ");
+}
+
+// Pick the best space for the computer player to make next move
+// @return id of the html element of the board space to make move
+function computerPlayerTurn() {
+	var moveTo;
+	// Look for moves for win
+
+	// Look to block other player's win
+
+	// Check if center space is still open
+	if(isSpaceOpen(spaceNames[4])) {
+		moveTo = spaceNames[4];
+	}
+
+	return moveTo;
 }
 
 function endGame() {
