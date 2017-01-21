@@ -6,10 +6,14 @@ var player1Symbol = "X";
 var player2Symbol = "O";
 var currentPlayer;
 var isGameOver;
+var moves;
+var isDraw;
 
 function startGame() {
     currentPlayer = 1; //Player 1 starts the game
     isGameOver = 0;
+    isDraw = 0;
+    moves = 0;
 }
 
 function checkSpace(space) {
@@ -28,11 +32,13 @@ function markPlayerSpace(player, space) {
 	var spaceButton = document.getElementById(space);
 	if(spaceButton.value == " " && player == 1) {
 		spaceButton.value = player1Symbol;
+		moves++;
 		checkForWin();
 		currentPlayer = 2;
 	}
 	else if(spaceButton.value == " " && player == 2) {
 		spaceButton.value = player2Symbol;
+		moves++;
 		checkForWin();
 		currentPlayer = 1;
 	}
@@ -77,6 +83,11 @@ function checkForWin() {
 	else if(topRight !== " " && topRight == midCenter && topRight == botLeft) {
 		isGameOver = 1;
 	}
+	else if(moves == 9) {
+		console.log("drawww");
+		isGameOver = 1;
+		isDraw = 1;
+	}
 
 	if(isGameOver) {
 		endGame();
@@ -91,5 +102,10 @@ function endGame() {
 	gameBoard.style.display = "none";
 	results.style.display = "inline";
 
-	winner.innerHTML = "Player " + currentPlayer + " wins!!!";
+	if(!isDraw){
+		winner.innerHTML = "Player " + currentPlayer + " wins!!!";
+	}
+	else {
+		winner.innerHTML = "It's A Draw!!!";
+	}
 }
