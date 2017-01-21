@@ -7,6 +7,16 @@ body {
    margin-top: 50px;
    width: 50%;
    text-align: center;
+   display: inline;
+}
+
+#game-results {
+   text-align: center;
+   display: none;
+}
+
+#winning-player {
+   font-size: 128px;
 }
 
 input {

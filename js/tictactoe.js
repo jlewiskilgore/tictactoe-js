@@ -28,13 +28,13 @@ function markPlayerSpace(player, space) {
 	var spaceButton = document.getElementById(space);
 	if(spaceButton.value == " " && player == 1) {
 		spaceButton.value = player1Symbol;
-		currentPlayer = 2;
 		checkForWin();
+		currentPlayer = 2;
 	}
 	else if(spaceButton.value == " " && player == 2) {
 		spaceButton.value = player2Symbol;
-		currentPlayer = 1;
 		checkForWin();
+		currentPlayer = 1;
 	}
 }
 
@@ -78,5 +78,18 @@ function checkForWin() {
 		isGameOver = 1;
 	}
 
-	console.log("GAME OVER?" + isGameOver);
+	if(isGameOver) {
+		endGame();
+	}
+}
+
+function endGame() {
+	var results = document.getElementById("game-results");
+	var winner = document.getElementById("winning-player");
+	var gameBoard = document.getElementById("tictactoe-board");
+
+	gameBoard.style.display = "none";
+	results.style.display = "inline";
+
+	winner.innerHTML = "Player " + currentPlayer + " wins!!!";
 }
