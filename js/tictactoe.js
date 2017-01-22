@@ -19,8 +19,6 @@ function startGame() {
 }
 
 function checkSpace(space) {
-	console.log("test");
-	console.log(space);
 	if(currentPlayer == 1) {
 		markPlayerSpace(currentPlayer, space);
 	}
@@ -124,87 +122,87 @@ function checkForWinThreats(playerSymbol) {
 
 	// Check for wins across each row for win threat
 	// TOP ROW
-	if(topLeft.value == " " && topCenter.value !== " " && topCenter.value == topRight.value) {
+	if(topLeft.value == " " && topCenter.value == playerSymbol && topCenter.value == topRight.value) {
 		moveTo = topLeft.id;
 	}
-	else if(topCenter.value == " " && topLeft.value !== " " && topLeft.value == topRight.value) {
+	else if(topCenter.value == " " && topLeft.value == playerSymbol && topLeft.value == topRight.value) {
 		moveTo = topCenter.id;
 	}
-	else if(topRight.value == " " && topCenter.value !== " " && topCenter.value == topLeft.value) {
+	else if(topRight.value == " " && topCenter.value == playerSymbol && topCenter.value == topLeft.value) {
 		moveTo = topRight.id;
 	}
 	// MIDDLE ROW
-	else if(midLeft.value == " " && midCenter.value !== " " && midCenter.value == midRight.value) {
+	else if(midLeft.value == " " && midCenter.value == playerSymbol && midCenter.value == midRight.value) {
 		moveTo = midLeft.id;
 	}
-	else if(midCenter.value == " " && midLeft.value !== " " && midLeft.value == midRight.value) {
+	else if(midCenter.value == " " && midLeft.value == playerSymbol && midLeft.value == midRight.value) {
 		moveTo = midCenter.id;
 	}
-	else if(midRight.value == " " && midCenter.value !== " " && midCenter.value == midLeft.value) {
+	else if(midRight.value == " " && midCenter.value == playerSymbol && midCenter.value == midLeft.value) {
 		moveTo = midRight.id;
 	}
 	// BOTTOM ROW
-	else if(botLeft.value == " " && botCenter.value !== " " && botCenter.value == botRight.value) {
+	else if(botLeft.value == " " && botCenter.value == playerSymbol && botCenter.value == botRight.value) {
 		moveTo = botLeft.id;
 	}
-	else if(botCenter.value == " " && botLeft.value !== " " && botLeft.value == botRight.value) {
+	else if(botCenter.value == " " && botLeft.value == playerSymbol && botLeft.value == botRight.value) {
 		moveTo = botCenter.id;
 	}
-	else if(botRight.value == " " && botCenter.value !== " " && botCenter.value == botLeft.value) {
+	else if(botRight.value == " " && botCenter.value == playerSymbol && botCenter.value == botLeft.value) {
 		moveTo = botRight.id;
 	}
 
 	// Check for wins down each column for win threat
 	// LEFT COLUMN
-	else if(topLeft.value == " " && midLeft.value !== " " && midLeft.value == botLeft.value) {
+	else if(topLeft.value == " " && midLeft.value == playerSymbol && midLeft.value == botLeft.value) {
 		moveTo = topLeft.id;
 	}
-	else if(midLeft.value == " " && topLeft.value !== " " && topLeft.value == botLeft.value) {
+	else if(midLeft.value == " " && topLeft.value == playerSymbol && topLeft.value == botLeft.value) {
 		moveTo = midLeft.id;
 	}
-	else if(botLeft.value == " " && topLeft.value !== " " && topLeft.value == midLeft.value) {
+	else if(botLeft.value == " " && topLeft.value == playerSymbol && topLeft.value == midLeft.value) {
 		moveTo = botLeft.id;
 	}
 	// CENTER COLUMN
-	else if(topCenter.value == " " && midCenter.value !== " " && midCenter.value == botCenter.value) {
+	else if(topCenter.value == " " && midCenter.value == playerSymbol && midCenter.value == botCenter.value) {
 		moveTo = topCenter.id;
 	}
-	else if(midCenter.value == " " && topCenter.value !== " " && topCenter.value == botCenter.value) {
+	else if(midCenter.value == " " && topCenter.value == playerSymbol && topCenter.value == botCenter.value) {
 		moveTo = midCenter.id;
 	}
-	else if(botCenter.value == " " && topCenter.value !== " " && topCenter.value == midCenter.value) {
+	else if(botCenter.value == " " && topCenter.value == playerSymbol && topCenter.value == midCenter.value) {
 		moveTo = botCenter.id;
 	}
 	// RIGHT COLUMN
-	else if(topRight.value == " " && midRight.value !== " " && midRight.value == botRight.value) {
+	else if(topRight.value == " " && midRight.value == playerSymbol && midRight.value == botRight.value) {
 		moveTo = topRight.id;
 	}
-	else if(midRight.value == " " && topRight.value !== " " && topRight.value == botRight.value) {
+	else if(midRight.value == " " && topRight.value == playerSymbol && topRight.value == botRight.value) {
 		moveTo = midRight.id;
 	}
-	else if(botRight.value == " " && topRight.value !== " " && topRight.value == midRight.value) {
+	else if(botRight.value == " " && topRight.value == playerSymbol && topRight.value == midRight.value) {
 		moveTo = botRight.id;
 	}
 
 	// Check for wins down the diagonals for win threat
 	// DIAGONAL LEFT TO RIGHT
-	else if(topLeft.value == " " && midCenter.value !== " " && midCenter.value == botRight.value) {
+	else if(topLeft.value == " " && midCenter.value == playerSymbol && midCenter.value == botRight.value) {
 		moveTo = topLeft.id;
 	}
-	else if(midCenter.value == " " && topLeft.value !== " " && topLeft.value == botRight.value) {
+	else if(midCenter.value == " " && topLeft.value == playerSymbol && topLeft.value == botRight.value) {
 		moveTo = midCenter.id;
 	}
-	else if(botRight.value == " " && topLeft.value !== " " && topLeft.value == midCenter.value) {
+	else if(botRight.value == " " && topLeft.value == playerSymbol && topLeft.value == midCenter.value) {
 		moveTo = botRight.id;
 	}
 	// DIAGONAL RIGHT TO LEFT
-	else if(topRight.value == " " && midCenter.value !== " " && midCenter.value == botLeft.value) {
+	else if(topRight.value == " " && midCenter.value == playerSymbol && midCenter.value == botLeft.value) {
 		moveTo = topRight.id;	
 	}
-	else if(midCenter.value == " " && topRight.value !== " " && topRight.value == botLeft.value) {
+	else if(midCenter.value == " " && topRight.value == playerSymbol && topRight.value == botLeft.value) {
 		moveTo = midCenter.id;	
 	}
-	else if(botLeft.value == " " && topRight.value !== " " && topRight.value == midCenter.value) {
+	else if(botLeft.value == " " && topRight.value == playerSymbol && topRight.value == midCenter.value) {
 		moveTo = botLeft.id;	
 	}
 
@@ -225,7 +223,6 @@ function makeRandomMove() {
 		randomSpaceIdx = getRandomIntInclusive(0,8);
 		foundOpen = isSpaceOpen(spaceNames[randomSpaceIdx]);
 		if(foundOpen) {
-			console.log(spaceNames[randomSpaceIdx]);
 			return spaceNames[randomSpaceIdx];
 		}
 	}while(!foundOpen)
@@ -242,21 +239,31 @@ function getRandomIntInclusive(min, max) {
 // Pick the best space for the computer player to make next move
 // @return id of the html element of the board space to make move
 function computerPlayerTurn() {
-	var moveTo;
-	var test;
+	var moveTo = "";
 	// Look for moves for win
-	test = checkForWinThreats(player2Symbol); // Check for win threats for player's own symbol
+	if(moveTo == "") {
+		console.log("go for win");
+		moveTo = checkForWinThreats(player2Symbol); // Check for win threats for player's own symbol
+	}
+
 	// Look to block other player's win
-
-	// Check if center space is still open
-	if(isSpaceOpen(spaceNames[4])) {
-		moveTo = spaceNames[4];
-	}
-	else {
-		moveTo = makeRandomMove();
+	if(moveTo == "") {
+		console.log("block opponent win");
+		moveTo = checkForWinThreats(player1Symbol); // Check for win threats for opponent player's symbol
 	}
 
-	console.log("test threat check: " + test);
+	// Check if center space is still open, else make a random move
+	if(moveTo == "") {
+		if(isSpaceOpen(spaceNames[4])) {
+			console.log("go to center space");
+			moveTo = spaceNames[4];
+		}
+		else {
+			console.log("no threats, go to random");
+			moveTo = makeRandomMove();
+		}
+	}
+
 	return moveTo;
 }
 
