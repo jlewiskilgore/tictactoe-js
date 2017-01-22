@@ -268,7 +268,7 @@ function endGame() {
 	var winner = document.getElementById("winning-player");
 	var gameBoard = document.getElementById("tictactoe-board");
 
-	gameBoard.style.display = "none";
+	gameBoard.style.pointerEvents = "none";
 	results.style.display = "inline";
 
 	if(!isDraw){
@@ -293,5 +293,5 @@ function resetGame() {
 	var gameBoard = document.getElementById("tictactoe-board");
 
 	results.style.display = "none";
-	gameBoard.style.display = "inline";
+	gameBoard.style.pointerEvents = "auto";
 }
