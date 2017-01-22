@@ -242,24 +242,20 @@ function computerPlayerTurn() {
 	var moveTo = "";
 	// Look for moves for win
 	if(moveTo == "") {
-		console.log("go for win");
 		moveTo = checkForWinThreats(player2Symbol); // Check for win threats for player's own symbol
 	}
 
 	// Look to block other player's win
 	if(moveTo == "") {
-		console.log("block opponent win");
 		moveTo = checkForWinThreats(player1Symbol); // Check for win threats for opponent player's symbol
 	}
 
 	// Check if center space is still open, else make a random move
 	if(moveTo == "") {
 		if(isSpaceOpen(spaceNames[4])) {
-			console.log("go to center space");
 			moveTo = spaceNames[4];
 		}
 		else {
-			console.log("no threats, go to random");
 			moveTo = makeRandomMove();
 		}
 	}
@@ -285,7 +281,6 @@ function endGame() {
 
 function clearGameBoard() {
 	for(var i=0; i < spaceNames.length; i++) {
-		console.log(document.getElementById(spaceNames[i]).value);
 		document.getElementById(spaceNames[i]).value = " ";
 	}
 }
