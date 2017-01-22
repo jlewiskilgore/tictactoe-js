@@ -110,6 +110,7 @@ function checkForWin() {
 // "Win Threat" is when any winning condition is currently satisfied by two
 // matching symbols plus a blank space.
 function checkForWinThreats(playerSymbol) {
+	var moveTo = ""; // Move to make that will complete or block threat
 	// Get the current values of each space on the board
 	var topLeft = document.getElementById(spaceNames[0]);
 	var topCenter = document.getElementById(spaceNames[1]);
@@ -122,32 +123,92 @@ function checkForWinThreats(playerSymbol) {
 	var botRight = document.getElementById(spaceNames[8]);
 
 	// Check for wins across each row for win threat
-	if(topLeft !== " " && topLeft == topCenter && topLeft == topRight) {
-		
+	// TOP ROW
+	if(topLeft.value == " " && topCenter.value !== " " && topCenter.value == topRight.value) {
+		moveTo = topLeft.id;
 	}
-	else if(midLeft !== " " && midLeft == midCenter && midLeft == midRight) {
-		
+	else if(topCenter.value == " " && topLeft.value !== " " && topLeft.value == topRight.value) {
+		moveTo = topCenter.id;
 	}
-	else if(botLeft !== " " && botLeft == botCenter && botLeft == botRight) {
-		
+	else if(topRight.value == " " && topCenter.value !== " " && topCenter.value == topLeft.value) {
+		moveTo = topRight.id;
 	}
+	// MIDDLE ROW
+	else if(midLeft.value == " " && midCenter.value !== " " && midCenter.value == midRight.value) {
+		moveTo = midLeft.id;
+	}
+	else if(midCenter.value == " " && midLeft.value !== " " && midLeft.value == midRight.value) {
+		moveTo = midCenter.id;
+	}
+	else if(midRight.value == " " && midCenter.value !== " " && midCenter.value == midLeft.value) {
+		moveTo = midRight.id;
+	}
+	// BOTTOM ROW
+	else if(botLeft.value == " " && botCenter.value !== " " && botCenter.value == botRight.value) {
+		moveTo = botLeft.id;
+	}
+	else if(botCenter.value == " " && botLeft.value !== " " && botLeft.value == botRight.value) {
+		moveTo = botCenter.id;
+	}
+	else if(botRight.value == " " && botCenter.value !== " " && botCenter.value == botLeft.value) {
+		moveTo = botRight.id;
+	}
+
 	// Check for wins down each column for win threat
-	else if(topLeft !== " " && topLeft == midLeft && topLeft == botLeft) {
-		
+	// LEFT COLUMN
+	else if(topLeft.value == " " && midLeft.value !== " " && midLeft.value == botLeft.value) {
+		moveTo = topLeft.id;
 	}
-	else if(topCenter !== " " && topCenter == midCenter && topCenter == botCenter) {
-		
+	else if(midLeft.value == " " && topLeft.value !== " " && topLeft.value == botLeft.value) {
+		moveTo = midLeft.id;
 	}
-	else if(topRight !== " " && topRight == midRight && topRight == botRight) {
-		
+	else if(botLeft.value == " " && topLeft.value !== " " && topLeft.value == midLeft.value) {
+		moveTo = botLeft.id;
 	}
+	// CENTER COLUMN
+	else if(topCenter.value == " " && midCenter.value !== " " && midCenter.value == botCenter.value) {
+		moveTo = topCenter.id;
+	}
+	else if(midCenter.value == " " && topCenter.value !== " " && topCenter.value == botCenter.value) {
+		moveTo = midCenter.id;
+	}
+	else if(botCenter.value == " " && topCenter.value !== " " && topCenter.value == midCenter.value) {
+		moveTo = botCenter.id;
+	}
+	// RIGHT COLUMN
+	else if(topRight.value == " " && midRight.value !== " " && midRight.value == botRight.value) {
+		moveTo = topRight.id;
+	}
+	else if(midRight.value == " " && topRight.value !== " " && topRight.value == botRight.value) {
+		moveTo = midRight.id;
+	}
+	else if(botRight.value == " " && topRight.value !== " " && topRight.value == midRight.value) {
+		moveTo = botRight.id;
+	}
+
 	// Check for wins down the diagonals for win threat
-	else if(topLeft !== " " && topLeft == midCenter && topLeft == botRight) {
-		
+	// DIAGONAL LEFT TO RIGHT
+	else if(topLeft.value == " " && midCenter.value !== " " && midCenter.value == botRight.value) {
+		moveTo = topLeft.id;
 	}
-	else if(topRight !== " " && topRight == midCenter && topRight == botLeft) {
-		
+	else if(midCenter.value == " " && topLeft.value !== " " && topLeft.value == botRight.value) {
+		moveTo = midCenter.id;
 	}
+	else if(botRight.value == " " && topLeft.value !== " " && topLeft.value == midCenter.value) {
+		moveTo = botRight.id;
+	}
+	// DIAGONAL RIGHT TO LEFT
+	else if(topRight.value == " " && midCenter.value !== " " && midCenter.value == botLeft.value) {
+		moveTo = topRight.id;	
+	}
+	else if(midCenter.value == " " && topRight.value !== " " && topRight.value == botLeft.value) {
+		moveTo = midCenter.id;	
+	}
+	else if(botLeft.value == " " && topRight.value !== " " && topRight.value == midCenter.value) {
+		moveTo = botLeft.id;	
+	}
+
+	return moveTo;
 }
 
 function isSpaceOpen(spaceId) {
@@ -182,8 +243,9 @@ function getRandomIntInclusive(min, max) {
 // @return id of the html element of the board space to make move
 function computerPlayerTurn() {
 	var moveTo;
+	var test;
 	// Look for moves for win
-
+	test = checkForWinThreats(player2Symbol); // Check for win threats for player's own symbol
 	// Look to block other player's win
 
 	// Check if center space is still open
@@ -194,6 +256,7 @@ function computerPlayerTurn() {
 		moveTo = makeRandomMove();
 	}
 
+	console.log("test threat check: " + test);
 	return moveTo;
 }
 
