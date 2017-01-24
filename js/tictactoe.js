@@ -303,9 +303,12 @@ function resetGame() {
 	clearGameBoard();
 	startGame();
 
+	var selectSymbol = document.getElementById("symbol-select");
 	var results = document.getElementById("game-results");
 	var gameBoard = document.getElementById("tictactoe-board");
 
 	results.style.display = "none";
+	selectSymbol.style.display = "inline";
+	gameBoard.style.display = "none";
 	gameBoard.style.pointerEvents = "auto";
 }
