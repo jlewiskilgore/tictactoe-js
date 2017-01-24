@@ -1,5 +1,5 @@
 body {
-   background-color: white;
+   background-color: lightblue;
    color: black;
 }
 
@@ -13,7 +13,7 @@ body {
    height: 120px;
    width: 120px;
    font-size: 72px;
-   background: white;
+   background: lightblue;
    border: none;
 }
 
@@ -47,7 +47,7 @@ body {
 #tictactoe-board input {
    height: 80px;
    width: 80px;
-   background: white;
+   background: lightblue;
    border: none;
    font-size: 48px;
 }
@@ -68,14 +68,14 @@ body {
    bottom:0px;
    height:80px;
    width:100%;
-   background: white;
+   background: black;
    text-align: center;
-   color: black;
+   color: lightblue;
    padding: 15px 5px 15px 10px;
 }
 
 #footer a {
-	color: black;
+	color: lightblue;
 	font-size: 32px;
 	padding: 20px;
 }   
