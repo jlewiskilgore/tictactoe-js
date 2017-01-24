@@ -14,19 +14,31 @@ function selectSymbol(p1Symbol) {
 	player1Symbol = p1Symbol;
 	if(player1Symbol == "X") {
 		player2Symbol = "O";
+		currentPlayer = 1;
 	}
 	else {
 		player2Symbol = "X";
+		currentPlayer = 2; // X Takes first turn
 	}
 
 	startGame();
 
 	symbolSelect.style.display = "none";
 	gameBoard.style.display = "inline";
+
+	// Take first move for computer AI if they are "X" symbol
+	if(currentPlayer == 2 && numberOfPlayers == 1) {
+		console.log("yooo");
+		computerMove = computerPlayerTurn();
+		spaceButton = document.getElementById(computerMove);
+		spaceButton.value = player2Symbol;
+		moves++;
+		checkForWin();
+		currentPlayer = 1;
+	}
 }
 
 function startGame() {
-    currentPlayer = 1; //Player 1 starts the game
     isGameOver = 0;
     isDraw = 0;
     moves = 0;
