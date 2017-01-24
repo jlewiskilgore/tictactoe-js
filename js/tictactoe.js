@@ -1,15 +1,29 @@
-$( document ).ready(function() {
-	startGame();
-})
-
 var spaceNames= ["top-left", "top-center", "top-right", "middle-left", "middle-center", "middle-right", "bottom-left", "bottom-center", "bottom-right"];
-var player1Symbol = "X";
-var player2Symbol = "O";
+var player1Symbol;
+var player2Symbol;
 var numberOfPlayers = 1; // 1 for player vs. computer OR 2 for player vs. player
 var currentPlayer;
 var isGameOver;
 var moves;
 var isDraw;
+
+function selectSymbol(p1Symbol) {
+	var gameBoard = document.getElementById("tictactoe-board");
+	var symbolSelect = document.getElementById("symbol-select");
+
+	player1Symbol = p1Symbol;
+	if(player1Symbol == "X") {
+		player2Symbol = "O";
+	}
+	else {
+		player2Symbol = "X";
+	}
+
+	startGame();
+
+	symbolSelect.style.display = "none";
+	gameBoard.style.display = "inline";
+}
 
 function startGame() {
     currentPlayer = 1; //Player 1 starts the game

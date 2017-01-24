@@ -18,6 +18,14 @@
 <body>
    <h1 align="center">TicTacToe</h1>
    <br>
+
+   <div class="container" id="symbol-select">
+      <h1>SELECT YOUR SYMBOL:</h1>
+      <div class="btn-group-justified">
+         <input id="select-x" type="submit" value="X" onclick="selectSymbol(this.value)" />
+         <input id="select-o" type="submit" value="O" onclick="selectSymbol(this.value)" />
+      </div>
+   </div>
    
    <div class="container" id="tictactoe-board">
       <div class="btn-group-justified">

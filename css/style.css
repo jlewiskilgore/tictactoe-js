@@ -3,20 +3,34 @@ body {
    color: black;
 }
 
+#symbol-select {
+   text-align: center;
+   display: inline;
+   white-space: nowrap;
+}
+
+#symbol-select input {
+   height: 120px;
+   width: 120px;
+   font-size: 72px;
+   background: white;
+   border: none;
+}
+
 #tictactoe-board {
    margin-top: 50px;
    width: 50%;
    text-align: center;
-   display: inline;
+   display: none;
    white-space:nowrap;
 }
 
-.center-row {
+#tictactoe-board .center-row {
    border-top: 10px solid black;
    border-bottom: 10px solid black;
 }
 
-.center-column {
+#tictactoe-board .center-column {
    border-left: 10px solid black;
    border-right: 10px solid black;
 }
@@ -30,7 +44,7 @@ body {
    font-size: 60px;
 }
 
-input {
+#tictactoe-board input {
    height: 80px;
    width: 80px;
    background: white;
@@ -38,7 +52,7 @@ input {
    font-size: 48px;
 }
 
-input:focus {
+#tictactoe-board input:focus {
    outline: none;
 }
 
